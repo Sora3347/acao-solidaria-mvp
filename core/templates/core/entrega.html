@@ -1,42 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ação Solidária MVP</title>
+    <title>Ação Solidária Bairro a Bairro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .mobile-container {
+            max-width: 414px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            min-height: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+        .navbar-brand { font-size: 1.1rem; font-weight: bold; }
+        .btn-xl { padding: 15px; font-size: 1.1rem; border-radius: 8px; }
+    </style>
 </head>
 <body>
-    <!-- Menu Mobile-First -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'dashboard' %}">Ação Solidária</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cadastrar' %}">Cadastrar Doação</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'entregas' %}">Entregas e Baixas</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div class="mobile-container">
+    <nav class="navbar navbar-dark bg-primary px-3">
+        <a href="{% url 'dashboard' %}" class="btn btn-sm btn-outline-light text-decoration-none">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </a>
+        <span class="navbar-brand text-white mx-auto">Entrega Mensal</span>
     </nav>
 
-    <!-- Conteúdo Original -->
-    <div class="container mt-4">
-        <h1>Entregas e Baixas</h1>
-        <p>Interface gerada para validação MVP.</p>
-    </div>
+    <div class="p-3 mt-2">
+        <div class="input-group mb-4 shadow-sm">
+            <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control form-control-lg" placeholder="Buscar Família...">
+        </div>
 
-    <!-- Script do Menu -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="card mb-3 shadow-sm border-0 bg-light">
+            <div class="card-body">
+                <h5 class="card-title fw-bold text-primary">Família Silva</h5>
+                <p class="mb-3 text-success fw-bold">
+                    <i class="fas fa-check-circle me-1"></i> Apto para receber
+                </p>
+                <form method="POST" action="{% url 'entregas' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-xl w-100">
+                        Confirmar Entrega
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm border-0" style="background-color: #e9ecef;">
+            <div class="card-body">
+                <h5 class="card-title fw-bold text-secondary">Família Oliveira</h5>
+                <p class="mb-3 text-secondary fw-bold">
+                    <i class="fas fa-ban me-1"></i> Já Recebeu neste mês
+                </p>
+                <button class="btn btn-secondary btn-xl w-100" disabled>
+                    Bloqueado
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,42 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ação Solidária MVP</title>
+    <title>Ação Solidária Bairro a Bairro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .mobile-container {
+            max-width: 414px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            min-height: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+        .navbar-brand { font-size: 1.1rem; font-weight: bold; }
+        .btn-xl { padding: 15px; font-size: 1.1rem; border-radius: 8px; }
+        .label-bold { font-weight: 600; color: #495057; margin-bottom: 5px; }
+    </style>
 </head>
 <body>
-    <!-- Menu Mobile-First -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'dashboard' %}">Ação Solidária</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cadastrar' %}">Cadastrar Doação</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'entregas' %}">Entregas e Baixas</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div class="mobile-container">
+    <nav class="navbar navbar-dark bg-success px-3">
+        <a href="{% url 'dashboard' %}" class="btn btn-sm btn-outline-light text-decoration-none">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </a>
+        <span class="navbar-brand text-white mx-auto">Registrar Entrada</span>
     </nav>
 
-    <!-- Conteúdo Original -->
-    <div class="container mt-4">
-        <h1>Cadastrar Doação</h1>
-        <p>Interface gerada para validação MVP.</p>
-    </div>
+    <div class="p-3 mt-2">
+        <form method="POST" action="{% url 'cadastrar' %}">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="form-label label-bold">Nome do Produto</label>
+                <input type="text" name="nome" class="form-control form-control-lg" placeholder="Ex: Macarrão Espaguete" required>
+            </div>
+            
+            <div class="mb-4">
+                <label class="form-label label-bold">Quantidade Recebida</label>
+                <input type="number" name="quantidade" class="form-control form-control-lg" min="1" placeholder="Ex: 20" required>
+            </div>
 
-    <!-- Script do Menu -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="mb-5">
+                <label class="form-label label-bold">Data de Validade</label>
+                <input type="date" name="validade" class="form-control form-control-lg" required>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-xl w-100 mt-2 shadow-sm">
+                <i class="fas fa-save me-2"></i> Salvar Doação
+            </button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

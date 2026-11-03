@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ação Solidária - Cadastrar</title>
+    <title>Ação Solidária MVP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4 shadow-sm">
+<body>
+    <!-- Menu Mobile-First -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{% url 'dashboard' %}">📦 Ação Solidária</a>
+            <a class="navbar-brand" href="{% url 'dashboard' %}">Ação Solidária</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'cadastrar' %}">Entrada de Doações</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'entregas' %}">Baixa de Cestas</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cadastrar' %}">Cadastrar Doação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'entregas' %}">Entregas e Baixas</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="card shadow-sm p-4 mx-auto" style="max-width: 500px;">
-            <h4 class="mb-4 text-secondary">Registrar Nova Doação</h4>
-            <form>
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Nome do Alimento</label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Ex: Feijão Carioca">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Quantidade Recebida <span class="text-primary">(em unidades)</span></label>
-                    <input type="number" class="form-control form-control-lg" placeholder="Ex: 10">
-                </div>
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Data de Validade</label>
-                    <input type="date" class="form-control form-control-lg">
-                </div>
-                <button type="button" class="btn btn-success btn-lg w-100 fw-bold">Salvar no Estoque</button>
-            </form>
-        </div>
+    <!-- Conteúdo Original -->
+    <div class="container mt-4">
+        <h1>Cadastrar Doação</h1>
+        <p>Interface gerada para validação MVP.</p>
     </div>
+
+    <!-- Script do Menu -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

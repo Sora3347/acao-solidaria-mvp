@@ -3,52 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ação Solidária - Dashboard</title>
+    <title>Ação Solidária MVP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4 shadow-sm">
+<body>
+    <!-- Menu Mobile-First -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{% url 'dashboard' %}">📦 Ação Solidária</a>
+            <a class="navbar-brand" href="{% url 'dashboard' %}">Ação Solidária</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'dashboard' %}">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'cadastrar' %}">Entrada de Doações</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'entregas' %}">Baixa de Cestas</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cadastrar' %}">Cadastrar Doação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'entregas' %}">Entregas e Baixas</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <h3 class="mb-4 text-secondary">Visão Geral Logística</h3>
-        <div class="row">
-            <!-- Alerta de Vencimento -->
-            <div class="col-md-6 mb-3">
-                <div class="card border-danger shadow-sm">
-                    <div class="card-header text-white bg-danger fw-bold">⚠️ Vencimento Próximo (FIFO)</div>
-                    <div class="card-body">
-                        <h5 class="card-title text-danger">Leite em Pó (12 unidades)</h5>
-                        <p class="card-text">Lote crítico. Vencimento em: <strong>03 dias</strong>.</p>
-                        <a href="{% url 'entregas' %}" class="btn btn-outline-danger btn-sm">Priorizar Entrega</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Estoque Saudável -->
-            <div class="col-md-6 mb-3">
-                <div class="card border-success shadow-sm">
-                    <div class="card-header text-white bg-success fw-bold">✔️ Estoque Estável</div>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">Arroz 5kg (45 unidades)</h5>
-                        <p class="card-text">Quantidade suficiente para o mês vigente.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Conteúdo Original -->
+    <div class="container mt-4">
+        <h1>Dashboard Logístico</h1>
+        <p>Interface gerada para validação MVP.</p>
     </div>
+
+    <!-- Script do Menu -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
